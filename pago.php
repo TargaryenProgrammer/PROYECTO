@@ -8,7 +8,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/config/config.php';
 
 
-MercadoPago\SDK::setAccessToken('TEST-3932232113783963-061212-5feddf42d0fe3a4551ff3637bfa30a68-453167553');
+MercadoPago\SDK::setAccessToken(TOKEN_MP);
 
 $preference = new MercadoPago\Preference();
 $productos_mp = array();

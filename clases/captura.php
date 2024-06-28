@@ -31,8 +31,8 @@ if (is_array($datos)) {
     // $fecha_nueva = date('Y-m-d H:i:s', strtotime($fecha)); 
     // $idCliente = $datos['details']['payer']['payer_id'];
 
-    $comando = $con->prepare("INSERT INTO compra(fecha, status, email, id_cliente, total, id_transaccion, medio_pago) VALUES(?,?,?,?,?,?,?)");
-    $comando->execute([$time, $status, $email, $idCliente, $monto, $idTransaccion, 'Paypal']);
+    $sql = $con->prepare("INSERT INTO compra(fecha, status, email, id_cliente, total, id_transaccion, medio_pago) VALUES(?,?,?,?,?,?,?)");
+    $sql->execute([$time, $status, $email, $idCliente, $monto, $idTransaccion, 'Paypal']);
     $id = $con->lastInsertId();
     if ($id > 0) {
         $productos = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['productos'] : null;
