@@ -1,7 +1,7 @@
 <!-- footer -->
 <footer class="footer mt-auto py-4 bg-dark text-center">
     <div class="container">
-        <p class="mb-0 text-white">Tienda Online - CarTech </p>
+        <p class="mb-0 text-white">LoveMe Store - CarTech </p>
         <p class="mb-0 text-white">Copyright &copy; <?= date('Y'); ?></p>
         <a href="https://www.facebook.com/KrlsARomero/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
         &middot; <a href="https://www.instagram.com/krlsrmro/" target="_blank"><i class="fa-brands fa-instagram"></i>

@@ -26,7 +26,7 @@ foreach ($datos as $dato) {
 /** URL de la tienda */
 define("BASE_URL", "http://localhost/lovemestore/");
 /** Nombre de la tienda para el título */
-define("TITLE", "Tienda Online");
+define("TITLE", "LoveMe Store");
 /** Token de cifrado */
 define("KEY_TOKEN", "APR.wcpq-345*");
 /** Key de cifrado */

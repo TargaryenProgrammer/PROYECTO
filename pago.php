@@ -4,21 +4,46 @@
  * Script para el procesamiento de pago
  * Autor: Carlos Andrés Romero
  */
+
+use MercadoPago\Client\Preference\PreferenceClient;
+use MercadoPago\MercadoPagoConfig;
+
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/config/config.php';
 
+MercadoPagoConfig::setAccessToken("TEST-5224185793102256-041408-aa3769bc824867b6b62060bb40ab20ef-453167553");
 
-MercadoPago\SDK::setAccessToken(TOKEN_MP);
+$client = new PreferenceClient();
 
-$preference = new MercadoPago\Preference();
+$backUrls = [
+    "success" => "http://localhost/lovemestore/success.php",
+    "failure" => "http://localhost/lovemestore/fail.php",
+    "pending" => "http://localhost/lovemestore/pending.php",
+];
+
+$preference = $client->create([
+    "items" => [
+        [
+            'id' => 'PROD-0001',
+            'title' => 'Producto de prueba',
+            'quantity' => 1,
+            'unit_price' => 150000,
+        ],
+    ],
+    
+    "back_urls" => $backUrls,
+    "auto_return" => "approved",
+
+    'statement_descriptor' => "LoveMeStore",
+    'external_reference' => 'TOL-001',
+]);
+
 $productos_mp = array();
 
 $db = new Database();
 $con = $db->conectar();
 
 $productos = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['productos'] : null;
-
-// print_r($_SESSION);
 
 $lista_carrito = array();
 
@@ -32,6 +57,7 @@ if ($productos != null) {
     header("Location: index.php");
     exit;
 }
+print_r($_SESSION);
 ?>
 
 <!doctype html>
@@ -70,7 +96,7 @@ if ($productos != null) {
                         </div>
                         <div class="row">
                             <div class="col-10">
-                                <div id="mp-button-container"></div>
+                                <div id="mpago_wallet_container"></div>
                             </div>
                         </div>
                     </div>
@@ -98,14 +124,15 @@ if ($productos != null) {
                                             $subtotal = $cantidad * $precio_desc;
                                             $total += $subtotal;
 
-                                            $item = new MercadoPago\Item();
-                                            $item->id = $_id;
-                                            $item->title = $nombre;
-                                            $item->quantity = $cantidad;
-                                            $item->unit_price = $precio_desc;
-                                            $item->currency_id = "COP";
-                                            array_push($productos_mp, $item);
-                                            unset($item);
+                                            // $preference = $client->create([
+                                            //     $item->id = $_id,
+                                            //     $item->title = $nombre,
+                                            //     $item->quantity = $cantidad,
+                                            //     $item->unit_price = $precio_desc,
+                                            //     $item->currency_id = "COP",
+                                            // ]);
+                                            //     array_push($productos_mp, $item);
+                                            //     unset($item);
                                             ?>
                                     <tr>
                                         <td><?php echo $nombre; ?></td>
@@ -141,7 +168,7 @@ if ($productos != null) {
 
     $preference->auto_return = "approved";
     $preference->binary_mode = true;
-    $preference->save();
+    // $preference->save();
     ?>
     <script>
     paypal.Buttons({
@@ -197,20 +224,50 @@ if ($productos != null) {
     }).render('#paypal-button-container');
 
     //Mercado Pago
-    const mp = new MercadoPago('TEST-f10feedf-6a6b-4826-9fe6-2111f9090927', {
+    const mp = new MercadoPago('TEST-bda535d7-46f5-4d70-9893-0909a102b165', {
         locale: 'es-CO'
     });
 
-    mp.checkout({
-        preference: {
-            id: '<?php echo $preference->id; ?>',
+    mp.bricks().create("wallet", "mpago_wallet_container", {
+        initialization: {
+            preferenceId: '<?php echo $preference->id; ?>',
+            redirectMode: 'modal'
         },
-        render: {
-            cantainer: '#mp-button-container',
-            type: 'wallet',
-            label: 'Pagar con Mercado Pago',
+        customization: {
+            texts: {
+                action: 'pay',
+                valueProp: 'security_details'
+            },
+            visual: {
+               buttonBackground: 'default',
+               borderRadius: '26px',
+               buttonHeight: 'default',
+               valuePropColor: 'default'
+            }
+        },
+        onCancel: function(data) {
+            Swal.fire({
+                position: 'top-center',
+                title: 'Pago cancelado',
+                text: 'El pago ha sido cancelado!',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
+            ("Pago cancelado");
+            console.log(data);
         }
     })
+
+    // mp.checkout({
+    //     preference: {
+    //         id: '</?php echo $preference->id; ?>',
+    //     },
+    //     render: {
+    //         cantainer: '#mp-button-container',
+    //         type: 'wallet',
+    //         label: 'Pagar con Mercado Pago',
+    //     }
+    // })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.all.min.js"></script>
     <?php include 'layout/footer.php'; ?>

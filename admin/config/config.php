@@ -18,7 +18,7 @@ require $basePath . '/config/database.php';
  */
 
 define("ADMIN_URL", "http://localhost/lovemestore/admin/");
-define("TITLE", "Admin Tienda Online");
+define("TITLE", "LoveMe Store");
 // define("BASE_URL", "http://localhost/lovemestore/");
 // define("KEY_CIFRADO", "ABCD.1234-");
 // define("METODO_CIFRADO", "aes-128-cbc");
