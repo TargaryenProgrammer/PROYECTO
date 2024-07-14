@@ -33,7 +33,7 @@ if ($id == '' || $token == '') {
             $rutaImg = $dir_images . 'principal.jpg';
 
             if (!file_exists($rutaImg)) {
-                $rutaImg = 'images/no_photo.jpg';
+                $rutaImg = 'images/no-photo.jpg';
             }
 
             $imagenes = array();
@@ -152,7 +152,7 @@ if ($id == '' || $token == '') {
     <script>
     // let btnAgregar = document.getElementById("btnAgregar")
     // let inputCantidad = document.getElementById("cantidad").value
-    // btnAgregar.onclick = addProducto(<?php echo $id; ?>, inputCantidad, '<?php echo $token_tmp; ?>')
+    // btnAgregar.onclick = addProducto(</?php echo $id; ?>, inputCantidad, '</?php echo $token_tmp; ?>')
 
     function addProducto(id, token) {
         let url = 'clases/carrito.php'

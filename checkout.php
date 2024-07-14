@@ -56,7 +56,7 @@ if ($productos != null) {
                         </thead>
                         <tbody>
                             <?php if ($lista_carrito == null) {
-                                echo '<tr><td colspan="5" class="text-center"><b>Tú carrito está vacio</b></td></tr>';
+                                echo '<tr><td colspan="5" class="text-center"><b>Tú carrito está vacio, echa un vistazo en nuestro catálogo y te ayudamos a resolverlo!</b></td></tr>';
                             } else {
                                 $total = 0;
                                 foreach ($lista_carrito as $producto) {
@@ -69,49 +69,49 @@ if ($productos != null) {
                                     $subtotal = $cantidad * $precio_desc;
                                     $total += $subtotal;
                                     ?>
-                                    <tr>
-                                        <td><?php echo $nombre; ?></td>
-                                        <td><?php echo MONEDA . number_format($precio_desc, 2, '.', ','); ?></td>
-                                        <td>
-                                            <input type="number" min="1" max="10" step="1" value="<?php echo $cantidad; ?>"
-                                                size="4" id="cantidad_<?php echo $_id; ?>"
-                                                onchange="actualizaCantidad(this.value, <?php echo $_id; ?>)">
-                                        </td>
-                                        <td>
-                                            <div id="subtotal_<?php echo $_id; ?>" name="subtotal[]">
-                                                <?php echo MONEDA . number_format($subtotal, 2, '.', ','); ?>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <a href="#" id="eliminar" data-bs-id="<?php echo $_id; ?>" data-bs-toggle="modal"
-                                                data-bs-target="#eliminaModal" class="btn btn-warning btn-sm"><i
-                                                    class="fa-solid fa-trash-can"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
-                                <tr>
-                                    <td colspan="3"></td>
-                                    <td colspan="2">
-                                        <p class="h3" id="total"><?php echo MONEDA . number_format($total, 2, '.', ','); ?>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            <tr>
+                                <td><?php echo $nombre; ?></td>
+                                <td><?php echo MONEDA . number_format($precio_desc, 2, '.', ','); ?></td>
+                                <td>
+                                    <input type="number" min="1" max="10" step="1" value="<?php echo $cantidad; ?>"
+                                        size="4" id="cantidad_<?php echo $_id; ?>"
+                                        onchange="actualizaCantidad(this.value, <?php echo $_id; ?>)">
+                                </td>
+                                <td>
+                                    <div id="subtotal_<?php echo $_id; ?>" name="subtotal[]">
+                                        <?php echo MONEDA . number_format($subtotal, 2, '.', ','); ?>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="#" id="eliminar" data-bs-id="<?php echo $_id; ?>" data-bs-toggle="modal"
+                                        data-bs-target="#eliminaModal" class="btn btn-warning btn-sm"><i
+                                            class="fa-solid fa-trash-can"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                            <tr>
+                                <td colspan="3"></td>
+                                <td colspan="2">
+                                    <p class="h3" id="total"><?php echo MONEDA . number_format($total, 2, '.', ','); ?>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
                         <?php } ?>
                     </table>
                 </div>
-                <!-- <div class="row justify-content-end" -->
+                <!-- <div class="row justify-content-end" </div> -->
                 <?php if ($lista_carrito != null) { ?>
-                    <div class="row">
-                        <div class="col-md-5 offset-md-7 d-grid gap-2">
-                            <?php if (isset($_SESSION['user_cliente'])) { ?>
-                                <a href="pago.php" class="btn btn-lg btn-primary">Realizar pago</a>
-                            <?php } else { ?>
-                                <a href="login.php?pago" class="btn btn-lg btn-primary">Realizar pago</a>
-                            <?php } ?>
-                        </div>
+                <div class="row">
+                    <div class="col-md-5 offset-md-7 d-grid gap-2">
+                        <?php if (isset($_SESSION['user_cliente'])) { ?>
+                        <a href="pago.php" class="btn btn-lg btn-primary">Realizar pago</a>
+                        <?php } else { ?>
+                        <a href="login.php?pago" class="btn btn-lg btn-primary">Realizar pago</a>
+                        <?php } ?>
                     </div>
+                </div>
                 <?php } ?>
             </div>
         </div>
@@ -128,7 +128,7 @@ if ($productos != null) {
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">Desea eliminar el producto de la lista?</div>
+                <div class="modal-body">¿Realmente desea eliminar el producto de la lista?</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Cerrar
@@ -140,61 +140,61 @@ if ($productos != null) {
     </div>
 
     <script>
-        let eliminaModal = document.getElementById('eliminaModal')
-        eliminaModal.addEventListener('show.bs.modal', function (event) {
-            let button = event.relatedTarget
-            let id = button.getAttribute('data-bs-id')
-            let buttonElimina = eliminaModal.querySelector('.modal-footer #btn-elimina')
-            buttonElimina.value = id
-        })
+    let eliminaModal = document.getElementById('eliminaModal')
+    eliminaModal.addEventListener('show.bs.modal', function(event) {
+        let button = event.relatedTarget
+        let id = button.getAttribute('data-bs-id')
+        let buttonElimina = eliminaModal.querySelector('.modal-footer #btn-elimina')
+        buttonElimina.value = id
+    })
 
-        function actualizaCantidad(cantidad, id) {
-            let url = 'clases/actualizar_carrito.php'
-            let formData = new FormData()
-            formData.append('action', 'agregar')
-            formData.append('id', id)
-            formData.append('cantidad', cantidad)
-            fetch(url, {
+    function actualizaCantidad(cantidad, id) {
+        let url = 'clases/actualizar_carrito.php'
+        let formData = new FormData()
+        formData.append('action', 'agregar')
+        formData.append('id', id)
+        formData.append('cantidad', cantidad)
+        fetch(url, {
                 method: 'POST',
                 body: formData,
                 mode: 'cors'
             }).then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        let divsubtotal = document.getElementById('subtotal_' + id)
-                        divsubtotal.innerHTML = data.sub
-                        let total = 0.00
-                        let list = document.getElementsByName('subtotal[]')
-                        for (let i = 0; i < list.length; i++) {
-                            total += parseFloat(list[i].innerHTML.replace(/[<?php echo MONEDA ?>,]/g, ''));
-                        }
-                        total = new Intl.NumberFormat('en-US', {
-                            minimumFractionDigits: 2
-                        }).format(total)
-                        document.getElementById('total').innerHTML = '<?php echo MONEDA; ?>' + total
+            .then(data => {
+                if (data.ok) {
+                    let divsubtotal = document.getElementById('subtotal_' + id)
+                    divsubtotal.innerHTML = data.sub
+                    let total = 0.00
+                    let list = document.getElementsByName('subtotal[]')
+                    for (let i = 0; i < list.length; i++) {
+                        total += parseFloat(list[i].innerHTML.replace(/[<?php echo MONEDA ?>,]/g, ''));
                     }
-                })
-        }
+                    total = new Intl.NumberFormat('en-US', {
+                        minimumFractionDigits: 2
+                    }).format(total)
+                    document.getElementById('total').innerHTML = '<?php echo MONEDA; ?>' + total
+                }
+            })
+    }
 
-        function eliminar() {
-            let botonElimina = document.getElementById('btn-elimina')
-            let id = botonElimina.value
+    function eliminar() {
+        let botonElimina = document.getElementById('btn-elimina')
+        let id = botonElimina.value
 
-            let url = 'clases/actualizar_carrito.php'
-            let formData = new FormData()
-            formData.append('action', 'eliminar')
-            formData.append('id', id)
-            fetch(url, {
+        let url = 'clases/actualizar_carrito.php'
+        let formData = new FormData()
+        formData.append('action', 'eliminar')
+        formData.append('id', id)
+        fetch(url, {
                 method: 'POST',
                 body: formData,
                 mode: 'cors'
             }).then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        location.reload()
-                    }
-                })
-        }
+            .then(data => {
+                if (data.ok) {
+                    location.reload()
+                }
+            })
+    }
     </script>
 
     <!-- <script>

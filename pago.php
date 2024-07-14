@@ -15,6 +15,8 @@ MercadoPagoConfig::setAccessToken("TEST-5224185793102256-041408-aa3769bc824867b6
 
 $client = new PreferenceClient();
 
+$productos_mp = array();
+
 $backUrls = [
     "success" => "http://localhost/lovemestore/success.php",
     "failure" => "http://localhost/lovemestore/fail.php",
@@ -38,7 +40,8 @@ $preference = $client->create([
     'external_reference' => 'TOL-001',
 ]);
 
-$productos_mp = array();
+
+
 
 $db = new Database();
 $con = $db->conectar();
@@ -120,19 +123,19 @@ print_r($_SESSION);
                                             $descuento = $producto['descuento'];
                                             $precio = $producto['precio'];
                                             $cantidad = $producto['cantidad'];
-                                            $precio_desc = $precio - (($precio * $descuento) / 100);
+                                            $precio_desc = $precio - ($precio * $descuento) / 100;
                                             $subtotal = $cantidad * $precio_desc;
                                             $total += $subtotal;
 
-                                            // $preference = $client->create([
-                                            //     $item->id = $_id,
-                                            //     $item->title = $nombre,
-                                            //     $item->quantity = $cantidad,
-                                            //     $item->unit_price = $precio_desc,
-                                            //     $item->currency_id = "COP",
-                                            // ]);
-                                            //     array_push($productos_mp, $item);
-                                            //     unset($item);
+                                            // $item = new PreferenceClient();
+                                            // $item->id = $_id;
+                                            // $item->title = $nombre;
+                                            // $item->quantity = $cantidad;
+                                            // $item->unit_price = $precio_desc;
+                                            // $tem->currency_id = "COP";
+
+                                            // array_push($productos_mp, $item);
+                                            // unset($item);
                                             ?>
                                     <tr>
                                         <td><?php echo $nombre; ?></td>
@@ -239,10 +242,10 @@ print_r($_SESSION);
                 valueProp: 'security_details'
             },
             visual: {
-               buttonBackground: 'default',
-               borderRadius: '26px',
-               buttonHeight: 'default',
-               valuePropColor: 'default'
+                buttonBackground: 'default',
+                borderRadius: '26px',
+                buttonHeight: 'default',
+                valuePropColor: 'default'
             }
         },
         onCancel: function(data) {

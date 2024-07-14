@@ -1,6 +1,6 @@
 <?php
 /**
- * Plantilla principal
+ * Script para mostrar las compras de cada cliente
  * Desarrollado por Carlos Romero - CARTECH
  * 2024
  */
