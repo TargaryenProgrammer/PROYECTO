@@ -1,7 +1,7 @@
-/**
+<!-- /**
 * Script para mostrar el mensaje de error
 * Auto: Carlos Andrés Romero
-*/
+*/ -->
 <!doctype html>
 <html lang="es">
 

@@ -29,7 +29,7 @@ try {
     $mail->Port = 465; /** use 587 `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS` */
 
     /** Correo y datos del emisor */
-    $mail->setFrom('krlsrmro.683.ventas@gmail.com', 'Tienda Online');
+    $mail->setFrom('krlsrmro.683.ventas@gmail.com', 'LoveMe Store');
     $mail->addAddress('krlsrmro.683.contacto@gmail.com', 'Joe User');
 
     /** Contenido del correo */

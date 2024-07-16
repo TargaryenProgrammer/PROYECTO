@@ -1,7 +1,7 @@
 <?php
 /**
  * Pantalla principal para el registro de un nuevo cliente
- * Desarrollado por Carlos Romero - CARTECH
+ * Desarrollado por Carlos Andrés Romero - CARTECH
  * 2024
  */
 
@@ -139,51 +139,51 @@ if (!empty($_POST)) {
     </main>
     <?php include 'layout/footer.php'; ?>
     <script>
-        let txtUsuario = document.getElementById('usuario')
-        txtUsuario.addEventListener("blur", function () {
-            existeUsuario(txtUsuario.value)
-        }, false)
+    let txtUsuario = document.getElementById('usuario')
+    txtUsuario.addEventListener("blur", function() {
+        existeUsuario(txtUsuario.value)
+    }, false)
 
-        function existeUsuario(usuario) {
-            let url = "clases/clienteAjax.php"
-            let formData = new FormData()
-            formData.append("action", "existeUsuario")
-            formData.append("usuario", usuario)
-            fetch(url, {
+    function existeUsuario(usuario) {
+        let url = "clases/clienteAjax.php"
+        let formData = new FormData()
+        formData.append("action", "existeUsuario")
+        formData.append("usuario", usuario)
+        fetch(url, {
                 method: 'POST',
                 body: formData
             }).then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        document.getElementById('usuario').value = ''
-                        document.getElementById('validaUsuario').innerHTML = 'Usuario no disponible.'
-                    } else {
-                        document.getElementById('validaUsuario').innerHTML = ''
-                    }
-                })
-        }
+            .then(data => {
+                if (data.ok) {
+                    document.getElementById('usuario').value = ''
+                    document.getElementById('validaUsuario').innerHTML = 'Usuario no disponible.'
+                } else {
+                    document.getElementById('validaUsuario').innerHTML = ''
+                }
+            })
+    }
 
-        let txtEmail = document.getElementById('email')
-        txtEmail.addEventListener("blur", function () {
-            existeEmail(txtEmail.value)
-        }, false)
+    let txtEmail = document.getElementById('email')
+    txtEmail.addEventListener("blur", function() {
+        existeEmail(txtEmail.value)
+    }, false)
 
-        function existeEmail(email) {
-            let url = "clases/clienteAjax.php"
-            let formData = new FormData()
-            formData.append("action", "existeEmail")
-            formData.append("email", email)
-            fetch(url, {
+    function existeEmail(email) {
+        let url = "clases/clienteAjax.php"
+        let formData = new FormData()
+        formData.append("action", "existeEmail")
+        formData.append("email", email)
+        fetch(url, {
                 method: 'POST',
                 body: formData
             }).then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        document.getElementById('email').value = ''
-                        document.getElementById('validaEmail').innerHTML = 'Email no disponible.'
-                    } else {
-                        document.getElementById('validaEmail').innerHTML = ''
-                    }
-                })
-        }
+            .then(data => {
+                if (data.ok) {
+                    document.getElementById('email').value = ''
+                    document.getElementById('validaEmail').innerHTML = 'Email no disponible.'
+                } else {
+                    document.getElementById('validaEmail').innerHTML = ''
+                }
+            })
+    }
     </script>

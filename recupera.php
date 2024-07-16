@@ -1,7 +1,7 @@
 <?php
 /**
  * Pantalla principal para recuperar la contraseña de clientes
- * Desarrollado por Carlos Romero - CARTECH
+ * Desarrollado por Carlos Andrés Romero - CARTECH
  * 2024
  */
 
@@ -34,7 +34,7 @@ if (!empty($_POST)) {
                 require 'clases/Mailer.php';
                 $mailer = new Mailer();
                 $url = BASE_URL . '/reset_password.php?id=' . $user_id . '&token=' . $token;
-                $asunto = "Recuperar contraseña - Tienda Online";
+                $asunto = "Recuperar contraseña - LoveMe Store";
                 $cuerpo = "Estiamdo $nombres: <br> Si has solicitado el cambio de tu contraseña da click en el siguiente link <a href='$url'>$url</a>.";
                 $cuerpo .= "<br>Si no hiciste esta solicitud puedes ignorar este correo.";
                 if ($mailer->enviarEmail($email, $asunto, $cuerpo)) {

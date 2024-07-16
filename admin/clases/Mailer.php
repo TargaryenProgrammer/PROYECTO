@@ -31,7 +31,7 @@ class Mailer
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = MAIL_PORT; /** use 587 `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS` */
             /** Correo emisor y nombre del emisor */
-            $mail->setFrom(MAIL_USER, 'Tienda Online');
+            $mail->setFrom(MAIL_USER, 'LoveMe Store');
             /**Correo receptor y nombre */
             $mail->addAddress($email);
             /** Contenido */
