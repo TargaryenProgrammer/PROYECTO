@@ -47,7 +47,10 @@
                 <?php } else { ?>
                 <a href="login.php" class="btn btn-sm btn-success"><i class="fas fa-user"></i> Ingresar</a>
                 <?php } ?>
+
             </div>
+            <button onclick="cambiarTema()" class="btn rounded-fill"><i id="dl-icon"
+                    class="fa-solid fa-moon"></i></button>
         </div>
     </nav>
 </header>

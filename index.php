@@ -27,7 +27,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100" data-bs-theme="light">
 
     <?php include 'layout/menu.php'; ?>
 
