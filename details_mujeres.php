@@ -156,7 +156,7 @@ if ($id == '' || $token == '') {
     // btnAgregar.onclick = addProducto(</?php echo $id; ?>, inputCantidad, '</?php echo $token_tmp; ?>')
 
     function addProdMujer(id, token) {
-        let url = 'clases/carrito_mujer.php'
+        let url = 'clases/carrito.php'
         let formData = new FormData()
         formData.append('id', id)
         formData.append('token', token)

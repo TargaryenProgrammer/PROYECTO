@@ -78,7 +78,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
     <script>
     function addProdMujer(id, token) {
-        let url = 'clases/carrito_mujer.php'
+        let url = 'clases/carrito_m.php'
         let formData = new FormData()
         formData.append('id', id)
         formData.append('token', token)

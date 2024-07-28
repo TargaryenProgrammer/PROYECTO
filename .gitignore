@@ -2,3 +2,6 @@
 /vendor
 pago.php
 pago_mujeres.php
+config/
+vendor/
+
