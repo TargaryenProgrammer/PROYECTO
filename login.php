@@ -1,8 +1,9 @@
 <?php
 /**
  * Pantalla de login para clientes
- * Desarrollado por Carlos Romero - CARTECH
- * 2024
+ * Desarrollado por Carlos Romero
+ * GitHub: https://github.com/KrlsRomero/
+ * 
  */
 
 require_once 'config/config.php';

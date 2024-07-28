@@ -2,6 +2,7 @@
 /**
  * Script para la visualición de los metodos de pago
  * Autor: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  */
 require_once 'config/config.php';
 $db = new Database();
@@ -196,48 +197,4 @@ if ($productos != null) {
             })
     }
     </script>
-
-    <!-- <script>
-    function eliminar() {
-        $("tr td #delete").click(function(ev) {
-            ev.preventDefault();
-            var nombre = $(this).parents('tr').find('td:first').text();
-            var id = $(this).attr('data-id');
-            Swal.fire({
-                title: '¿Realmente quieres eliminar el producto de ' + nombre + '?',
-                text: 'El registro no será eliminado permanentemente!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si',
-                cancelButtonText: 'No'
-            }).then((result) => {
-                if (result.value) {
-                    // ajax ...
-                    $.ajax({
-                        type: 'POST',
-                        url: 'clases/carrito.php'
-                        data: {
-                            'id': id
-                        },
-                        success: function() {
-                            Swal.fire({
-                                title: 'Eliminado',
-                                text: 'El registro ha sido eliminado satisfactoriamente',
-                                icon: 'success',
-                            })
-                        }.statusCode: {
-                            400: function() {
-
-                            }
-                        }
-                    })
-                    document.location.href = href;
-                }
-            })
-        })
-
-    }
-    </script> -->
     <?php include 'layout/footer.php'; ?>

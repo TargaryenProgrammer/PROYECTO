@@ -2,6 +2,7 @@
 /**
  * Funciones de utilidad para usuarios con rol clientes
  * Autor: Carlos Romero
+ * GitHub: https://github.com/KrlsRomero/
  * 
  */
 function esNulo(array $parametros)

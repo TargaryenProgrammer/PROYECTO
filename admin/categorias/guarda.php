@@ -21,5 +21,3 @@ $sql = $con->prepare("INSERT INTO categorias(nombre, activo) VALUES(?, 1)");
 $sql->execute([$nombre]);
 
 header('Location: index.php');
-ob_end_flush();
-?>

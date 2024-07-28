@@ -2,6 +2,7 @@
 /**
  * Script para capturar los detalles de pago por medio de Paypal
  * Autor: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  * 
  */
 require '../config/config.php';

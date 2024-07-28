@@ -7,7 +7,6 @@ if (!isset($_SESSION['user_type'])) {
     header('Location: ../index.php');
     exit;
 }
-// echo '<script>window.location="../index.php"</script>';
 
 if ($_SESSION['user_type'] != 'admin') {
     header('Location: ../../index.php');
@@ -25,7 +24,7 @@ $productos = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
 <main>
     <div class="container-fluid px-4">
-        <h2 class="mt-3">Productos</h2>
+        <h2 class="mt-3">Hombres</h2>
         <a href="nuevo.php" class="btn btn-primary tn-sm">Agregar</a>
         <div class="table-responsive">
             <table class="table table-hover">

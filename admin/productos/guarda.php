@@ -1,5 +1,4 @@
 <?php
-// ob_start();
 require_once '../config/config.php';
 
 if (!isset($_SESSION['user_type'])) {
@@ -81,5 +80,3 @@ if ($stm->execute([$nombre, $descripcion, $precio, $descuento, $stock, $categori
 }
 
 header('Location: index.php');
-// ob_end_flush();
-?>

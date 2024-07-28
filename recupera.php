@@ -1,7 +1,8 @@
 <?php
 /**
  * Pantalla principal para recuperar la contraseña de clientes
- * Desarrollado por Carlos Andrés Romero - CARTECH
+ * Desarrollado por Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  * 2024
  */
 
@@ -35,8 +36,8 @@ if (!empty($_POST)) {
                 $mailer = new Mailer();
                 $url = BASE_URL . '/reset_password.php?id=' . $user_id . '&token=' . $token;
                 $asunto = "Recuperar contraseña - LoveMe Store";
-                $cuerpo = "Estiamdo $nombres: <br> Si has solicitado el cambio de tu contraseña da click en el siguiente link <a href='$url'>$url</a>.";
-                $cuerpo .= "<br>Si no hiciste esta solicitud puedes ignorar este correo.";
+                $cuerpo = "Estimado $nombres: <br> Si has solicitado el cambio de tu contraseña da click en el siguiente link <a href='$url'>$url</a>.";
+                $cuerpo .= "<br>Si no hiciste esta solicitud puedes ignorar este mensaje!.";
                 if ($mailer->enviarEmail($email, $asunto, $cuerpo)) {
                     echo "<p><strong>Correo enviado</strong></p>";
                     echo "<p>Hemos enviado un correo electrónico a la dirección $email para restablecer la contraseña.<br> Si no lo ves en recibidos! revisa en la carpeta de spam.</p>";

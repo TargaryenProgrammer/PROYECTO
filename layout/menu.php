@@ -11,19 +11,22 @@
             <div class="collapse navbar-collapse" id="navbarHeader">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a href="catalogo.php" class="nav-link active">Catálogo</a>
+                        <a href="catalogo.php" class="nav-link active">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Vestidos</a>
+                        <a href="mujeres.php" class="nav-link active">Mujeres</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Camisas</a>
+                        <a href="niños.php" class="nav-link">Niños</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Blusas</a>
+                        <a href="servicios.php" class="nav-link">Servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Contacto</a>
+                        <a href="nosotros.php" class=" nav-link">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.php" class="nav-link">Contacto</a>
                     </li>
                 </ul>
                 <a href="checkout.php" class="btn btn-sm btn-primary me-2">
@@ -54,4 +57,3 @@
         </div>
     </nav>
 </header>
-<!-- Contenido -->

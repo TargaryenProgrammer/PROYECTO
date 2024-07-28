@@ -25,7 +25,7 @@ $categoria = $sql->fetch(PDO::FETCH_ASSOC);
 
 <main>
     <div class="container-fluid px-4">
-        <h2 class="mt-3">Edita Categoría</h2>
+        <h2 class="mt-3">Editar Categoría</h2>
         <form action="actualiza.php" method="post" autocomplete="off">
             <input type="hidden" name="id" value="<?php echo $categoria['id']; ?>">
             <div class="mb-3">

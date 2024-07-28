@@ -2,7 +2,7 @@
 /**
  * Script para agregar productos al carrito de compras
  * Autor: Carlos Romero
- * 
+ * GitHub: https.//github.com/KrlsRomero
  */
 require_once '../config/config.php';
 

@@ -3,6 +3,7 @@
 /** 
  * Parámetros de configuración del sistema
  * Autor: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  */
 
 $path = dirname(__FILE__) . DIRECTORY_SEPARATOR;

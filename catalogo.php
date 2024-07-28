@@ -2,6 +2,7 @@
 /**
  * Script para visualizar el catálogo de la tienda
  * Autor: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  * 
  */
 require_once 'config/config.php';

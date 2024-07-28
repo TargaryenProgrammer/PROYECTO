@@ -2,6 +2,7 @@
 /**
  * Script para mostrar un mensaje al momento de concluir la compra
  * Auto: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  */
 require_once 'config/config.php';
 $db = new Database();
@@ -51,42 +52,42 @@ if ($id_transaccion == '') {
         <div class="album py-5 bg-body-tertiary">
             <div class="container">
                 <?php if (strlen($error) > 0) { ?>
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 order-md-1">
-                            <h3><?php echo $error; ?></h3>
-                        </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 order-md-1">
+                        <h3><?php echo $error; ?></h3>
                     </div>
+                </div>
                 <?php } else { ?>
-                    <div class="row">
-                        <div class="col">
-                            <b>Folio de la compra: </b> <?php echo $id_transaccion; ?><br>
-                            <b>Fecha de compra: </b> <?php echo $fecha; ?><br>
-                            <b>Total: </b> <?php echo MONEDA . number_format($total, 2, '.', ','); ?><br>
-                        </div>
+                <div class="row">
+                    <div class="col">
+                        <b>Folio de la compra: </b> <?php echo $id_transaccion; ?><br>
+                        <b>Fecha de compra: </b> <?php echo $fecha; ?><br>
+                        <b>Total: </b> <?php echo MONEDA . number_format($total, 2, '.', ','); ?><br>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Cantidad</th>
-                                        <th>Producto</th>
-                                        <th class="text-center">Importe</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php while ($row_det = $sqlDet->fetch(PDO::FETCH_ASSOC)) {
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Cantidad</th>
+                                    <th>Producto</th>
+                                    <th class="text-center">Importe</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while ($row_det = $sqlDet->fetch(PDO::FETCH_ASSOC)) {
                                         $importe = $row_det['precio'] * $row_det['cantidad']; ?>
-                                        <tr>
-                                            <td><?php echo $row_det['cantidad']; ?></td>
-                                            <td><?php echo $row_det['nombre']; ?></td>
-                                            <td><?php echo $importe; ?></td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                <tr>
+                                    <td><?php echo $row_det['cantidad']; ?></td>
+                                    <td><?php echo $row_det['nombre']; ?></td>
+                                    <td><?php echo $importe; ?></td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
+                </div>
                 <?php } ?>
             </div>
         </div>

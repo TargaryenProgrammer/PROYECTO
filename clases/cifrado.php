@@ -18,5 +18,3 @@ function descifrar($input)
     @$cipher = base64_decode($parts[1]);
     return openssl_decrypt($cipher, METODO, KEY_CIFRADO, OPENSSL_RAW_DATA, $iv);
 }
-
-?>

@@ -1,7 +1,8 @@
 <?php
 /**
  * Plantilla principal
- * Desarrollado por Carlos Romero - CARTECH
+ * Desarrollado por Carlos Romero
+ * GitHub: https://github.com/KrlsRomero/
  * 2024
  */
 

@@ -1,8 +1,8 @@
 <?php
-
 /**
  * Script para el procesamiento de pago
  * Autor: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  */
 
 use MercadoPago\Client\Preference\PreferenceClient;
@@ -32,16 +32,13 @@ $preference = $client->create([
             'unit_price' => 150000,
         ],
     ],
-    
+
     "back_urls" => $backUrls,
     "auto_return" => "approved",
 
     'statement_descriptor' => "LoveMeStore",
     'external_reference' => 'TOL-001',
 ]);
-
-
-
 
 $db = new Database();
 $con = $db->conectar();
@@ -60,7 +57,7 @@ if ($productos != null) {
     header("Location: index.php");
     exit;
 }
-print_r($_SESSION);
+// print_r($_SESSION);
 ?>
 
 <!doctype html>
@@ -133,7 +130,7 @@ print_r($_SESSION);
                                             // $item->quantity = $cantidad;
                                             // $item->unit_price = $precio_desc;
                                             // $tem->currency_id = "COP";
-
+                                    
                                             // array_push($productos_mp, $item);
                                             // unset($item);
                                             ?>

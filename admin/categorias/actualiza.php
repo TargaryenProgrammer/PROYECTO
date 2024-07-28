@@ -21,4 +21,3 @@ $nombre = $_POST['nombre'];
 $sql = $con->prepare("UPDATE categorias SET nombre = ? WHERE id = ?");
 $sql->execute([$nombre, $id]);
 header('Location: index.php');
-?>

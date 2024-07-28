@@ -1,7 +1,8 @@
 <?php
 /**
  * Pantalla principal para resetear la contraseña de clientes
- * Desarrollado por Carlos Andrés Romero - CARTECH
+ * Desarrollado por Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  * 2024
  */
 

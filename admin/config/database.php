@@ -2,6 +2,7 @@
 /**
  * Script de configuración y conexión a la base de datos
  * Autor: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  */
 class Database
 {
@@ -28,5 +29,3 @@ class Database
         }
     }
 }
-
-?>

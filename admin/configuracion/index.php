@@ -6,13 +6,11 @@ require '../clases/cifrado.php';
 
 if (!isset($_SESSION['user_type'])) {
     header('Location: ../index.php');
-    // echo '<script>window.location="' . ADMIN_URL . 'index.php"</script>';
     exit;
 }
 
 if ($_SESSION['user_type'] != 'admin') {
     header('Location: ../../index.php');
-    // echo '<script>window.location="'.BASE_UL.'../../index.php"</script>';
     exit;
 }
 

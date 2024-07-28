@@ -1,5 +1,4 @@
 <?php
-// ob_start();
 require_once '../config/config.php';
 
 if (!isset($_SESSION['user_type'])) {
@@ -84,20 +83,18 @@ if ($stm->execute([$nombre, $descripcion, $precio, $descuento, $stock, $categori
 
     $sizeTalla = count($talla);
 
-    if($sizeTalla == count($color) && $sizeTalla == count($precioVariante) && $sizeTalla == count($stockVariante)){
+    if ($sizeTalla == count($color) && $sizeTalla == count($precioVariante) && $sizeTalla == count($stockVariante)) {
         $sqlVariante = "INSERT INTO productos_variantes(id_producto, id_talla, id_color, precio, stock) VALUES(?,?,?,?,?)";
         $stm = $con->prepare($sql);
-        for($i = 0; $i < $sizeTalla; $i++){
-          $idTalla = $talla[$i];
-          $idColor = $color[$i];
-          $precio = $precioVariante[$i];
-          $stock = $stockVariante[$i];
+        for ($i = 0; $i < $sizeTalla; $i++) {
+            $idTalla = $talla[$i];
+            $idColor = $color[$i];
+            $precio = $precioVariante[$i];
+            $stock = $stockVariante[$i];
 
-          $stm->execute([$id, $idTalla, $idColor, $precio, $stock]);
+            $stm->execute([$id, $idTalla, $idColor, $precio, $stock]);
         }
     }
 }
 
 header('Location: index.php');
-// ob_end_flush();
-?>

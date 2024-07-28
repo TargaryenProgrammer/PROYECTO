@@ -2,6 +2,7 @@
 /**
  * Script de cierre de la sesión
  * Autor: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  * 
  */
 require_once 'config/config.php';

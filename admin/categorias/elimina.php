@@ -20,4 +20,3 @@ $id = $_POST['id'];
 $sql = $con->prepare("UPDATE categorias SET activo = 0 WHERE id = ?");
 $sql->execute([$id]);
 header('Location: index.php');
-?>

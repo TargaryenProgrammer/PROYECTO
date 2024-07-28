@@ -2,6 +2,7 @@
 /**
  * Script para la activación del rol clientes
  * Autor: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  * 
  */
 

@@ -7,7 +7,6 @@ if (!isset($_SESSION['user_type'])) {
     header('Location: ../index.php');
     exit;
 }
-// echo '<script>window.location="../index.php"</script>';
 
 if ($_SESSION['user_type'] != 'admin') {
     header('Location: ../../index.php');

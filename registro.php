@@ -1,7 +1,8 @@
 <?php
 /**
  * Pantalla principal para el registro de un nuevo cliente
- * Desarrollado por Carlos Andrés Romero - CARTECH
+ * Desarrollado por Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  * 2024
  */
 

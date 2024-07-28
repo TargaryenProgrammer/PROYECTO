@@ -1,4 +1,4 @@
-<!-- footer -->
+<!-- footer componente -->
 <footer class="footer mt-auto py-4 bg-dark text-center">
     <div class="container">
         <p class="mb-0 text-white">LoveMe Store - CarTech </p>

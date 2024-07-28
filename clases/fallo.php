@@ -1,7 +1,8 @@
-<!-- /**
+/**
 * Script para mostrar el mensaje de error
 * Auto: Carlos Andrés Romero
-*/ -->
+* GitHub: https://github.com/KrlsRomero/
+*/
 <!doctype html>
 <html lang="es">
 

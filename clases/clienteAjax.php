@@ -2,6 +2,7 @@
 /**
  * Script para validación de clientes
  * Autor: Carlos Romero
+ * GitHub: https://github.com/KrlsRomero/
  * 
  */
 require '../config/database.php';

@@ -1,5 +1,4 @@
 <?php
-
 require_once '../config/config.php';
 require_once '../layout/header.php';
 
@@ -149,7 +148,7 @@ $colores = $resultado->fetchAll(PDO::FETCH_ASSOC);
                             <option value="">Seleccionar</option>
                             <?php foreach ($tallas as $talla) { ?>
                             <option value="<?php echo $talla['id']; ?>" <?php if ($talla['id'] == $producto['nombre'])
-                                   echo 'selected'; ?>><?php echo $talla['nombre']; ?>
+                                       echo 'selected'; ?>><?php echo $talla['nombre']; ?>
                             </option>
                             <?php } ?>
                         </select>
@@ -160,7 +159,7 @@ $colores = $resultado->fetchAll(PDO::FETCH_ASSOC);
                             <option value="">Seleccionar</option>
                             <?php foreach ($colores as $color) { ?>
                             <option value="<?php echo $color['id']; ?>" <?php if ($color['id'] == $producto['nombre'])
-                                   echo 'selected'; ?>><?php echo $color['nombre']; ?>
+                                       echo 'selected'; ?>><?php echo $color['nombre']; ?>
                             </option>
                             <?php } ?>
                         </select>

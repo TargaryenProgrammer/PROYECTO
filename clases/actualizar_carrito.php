@@ -2,7 +2,7 @@
 /**
  * Script para actualizar el carrito de compras
  * Autor: Carlos Andrés Romero
- * 
+ * GitHub: https://github.com/KrlsRomero/
  */
 require_once '../config/config.php';
 require_once '../config/database.php';

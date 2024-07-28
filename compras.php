@@ -1,8 +1,8 @@
 <?php
 /**
  * Script para mostrar las compras de cada cliente
- * Desarrollado por Carlos Romero - CARTECH
- * 2024
+ * Desarrollado por Carlos Romero - CARTECH - 2024
+ * GitHub: https://github.com/KrlsRomero/
  */
 
 require_once 'config/config.php';

@@ -2,6 +2,7 @@
 /**
  * Script para la captura de la orden de compra
  * Autor: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  * 
  */
 require_once 'config/config.php';

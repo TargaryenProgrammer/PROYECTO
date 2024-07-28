@@ -2,6 +2,7 @@
 /**
  * Script para mostrar los detalles de los productos
  * Auto: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  */
 require_once 'config/config.php';
 require_once 'config/database.php';

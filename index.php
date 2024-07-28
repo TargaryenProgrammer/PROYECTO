@@ -2,6 +2,7 @@
 /**
  * Script de la pantalla principal para mostrar el listado de productos de la tienda
  * Auto: Carlos Andrés Romero
+ * GitHub: https://github.com/KrlsRomero/
  */
 require_once 'config/config.php';
 require_once 'config/database.php';

@@ -2,7 +2,7 @@
 /**
  * Script para el envio de email
  * Autor: Carlos Romero
- * 
+ * GitHub: https://github.com/KrlsRomero/
  */
 /** use PHPMailer\PHPMailer\{PHPMailer, SMTP, Exception}; */
 
