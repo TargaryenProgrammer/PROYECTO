@@ -16,9 +16,11 @@ if ($productos != null) {
     foreach ($productos as $clave => $cantidad) {
         $sql = $con->prepare("SELECT id, nombre, precio, descuento, $cantidad AS cantidad FROM productos WHERE id = ? AND activo = 1");
         $sql->execute([$clave]);
-        $lista_carrito[] = $sql->fetch(PDO::FETCH_ASSOC);
+        $lista_carrito[] = json_encode($sql->fetch(PDO::FETCH_ASSOC));
     }
 }
+
+
 /** 
  * session_destroy(); 
  */
@@ -57,7 +59,7 @@ if ($productos != null) {
                         </thead>
                         <tbody>
                             <?php if ($lista_carrito == null) {
-                                echo '<tr><td colspan="5" class="text-center"><b>Tú carrito está vacio, echa un vistazo en nuestro catálogo y te ayudamos a resolverlo!</b></td></tr>';
+                                echo '<tr><td colspan="5" class="text-center"><b>Tú carrito está vacio</b></td></tr>';
                             } else {
                                 $total = 0;
                                 foreach ($lista_carrito as $producto) {
@@ -102,7 +104,7 @@ if ($productos != null) {
                         <?php } ?>
                     </table>
                 </div>
-                <!-- <div class="row justify-content-end" </div> -->
+                <!-- <div class="row justify-content-end" -->
                 <?php if ($lista_carrito != null) { ?>
                 <div class="row">
                     <div class="col-md-5 offset-md-7 d-grid gap-2">
@@ -129,7 +131,7 @@ if ($productos != null) {
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">¿Realmente desea eliminar el producto de la lista?</div>
+                <div class="modal-body">Desea eliminar el producto de la lista?</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Cerrar
@@ -197,4 +199,48 @@ if ($productos != null) {
             })
     }
     </script>
+
+    <!-- <script>
+    function eliminar() {
+        $("tr td #delete").click(function(ev) {
+            ev.preventDefault();
+            var nombre = $(this).parents('tr').find('td:first').text();
+            var id = $(this).attr('data-id');
+            Swal.fire({
+                title: '¿Realmente quieres eliminar el producto de ' + nombre + '?',
+                text: 'El registro no será eliminado permanentemente!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si',
+                cancelButtonText: 'No'
+            }).then((result) => {
+                if (result.value) {
+                    // ajax ...
+                    $.ajax({
+                        type: 'POST',
+                        url: 'clases/carrito.php'
+                        data: {
+                            'id': id
+                        },
+                        success: function() {
+                            Swal.fire({
+                                title: 'Eliminado',
+                                text: 'El registro ha sido eliminado satisfactoriamente',
+                                icon: 'success',
+                            })
+                        }.statusCode: {
+                            400: function() {
+
+                            }
+                        }
+                    })
+                    document.location.href = href;
+                }
+            })
+        })
+
+    }
+    </script> -->
     <?php include 'layout/footer.php'; ?>

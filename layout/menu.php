@@ -11,24 +11,27 @@
             <div class="collapse navbar-collapse" id="navbarHeader">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a href="catalogo.php" class="nav-link active">Productos</a>
+                        <a href="index.php" class="nav-link active">Inicio</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="mujeres.php" class="nav-link active">Mujeres</a>
                     </li>
                     <li class="nav-item">
                         <a href="niños.php" class="nav-link">Niños</a>
                     </li>
                     <li class="nav-item">
-                        <a href="servicios.php" class="nav-link">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="nosotros.php" class=" nav-link">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="contacto.php" class="nav-link">Contacto</a>
-                    </li>
+                    </li> -->
                 </ul>
+                <form action="index.php" method="get">
+                    <div class="input-group pe-3">
+                        <input type="text" name="q" id="q" class="form-control form-control-sm" placeholder="Buscar.."
+                            aria-labelledby="icon-buscar">
+                        <button type="submit" id="icon-buscar" class="btn btn-outline-info btn-sm">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                </form>
                 <a href="checkout.php" class="btn btn-sm btn-primary me-2">
                     <i class="fa-solid fa-cart-plus"></i> <span id="num_cart"
                         class="badge bg-secondary"><?php echo $num_cart; ?></span> Carrito
@@ -48,12 +51,12 @@
                     </div>
                 </div>
                 <?php } else { ?>
-                <a href="login.php" class="btn btn-sm btn-success"><i class="fas fa-user"></i> Ingresar</a>
+                <a href="login.php" class="btn btn-sm btn-success"><i class="fas fa-user"></i></a>
                 <?php } ?>
 
             </div>
-            <button onclick="cambiarTema()" class="btn rounded-fill"><i id="dl-icon"
-                    class="fa-solid fa-moon"></i></button>
+            <button onclick="cambiarTema()" class="btn rounded-fill"><i id="dl-icon" class="fa-solid fa-moon"></i>
+            </button>
         </div>
     </nav>
 </header>
