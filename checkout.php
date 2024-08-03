@@ -1,6 +1,6 @@
 <?php
 /**
- * Script para la visualición de los metodos de pago
+ * Script para la visualización de los métodos de pago
  * Autor: Carlos Andrés Romero
  * GitHub: https://github.com/KrlsRomero/
  */
@@ -16,14 +16,9 @@ if ($productos != null) {
     foreach ($productos as $clave => $cantidad) {
         $sql = $con->prepare("SELECT id, nombre, precio, descuento, $cantidad AS cantidad FROM productos WHERE id = ? AND activo = 1");
         $sql->execute([$clave]);
-        $lista_carrito[] = json_encode($sql->fetch(PDO::FETCH_ASSOC));
+        $lista_carrito[] = $sql->fetch(PDO::FETCH_ASSOC);
     }
 }
-
-
-/** 
- * session_destroy(); 
- */
 ?>
 
 <!doctype html>
@@ -37,7 +32,7 @@ if ($productos != null) {
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css " rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -58,9 +53,9 @@ if ($productos != null) {
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if ($lista_carrito == null) {
-                                echo '<tr><td colspan="5" class="text-center"><b>Tú carrito está vacio</b></td></tr>';
-                            } else {
+                            <?php if ($lista_carrito == null) { ?>
+                                <tr><td colspan="5" class="text-center"><b>Tú carrito está vacío</b></td></tr>
+                            <?php } else { 
                                 $total = 0;
                                 foreach ($lista_carrito as $producto) {
                                     $_id = $producto['id'];
@@ -71,7 +66,7 @@ if ($productos != null) {
                                     $precio_desc = $precio - (($precio * $descuento) / 100);
                                     $subtotal = $cantidad * $precio_desc;
                                     $total += $subtotal;
-                                    ?>
+                            ?>
                             <tr>
                                 <td><?php echo $nombre; ?></td>
                                 <td><?php echo MONEDA . number_format($precio_desc, 2, '.', ','); ?></td>
@@ -96,15 +91,13 @@ if ($productos != null) {
                             <tr>
                                 <td colspan="3"></td>
                                 <td colspan="2">
-                                    <p class="h3" id="total"><?php echo MONEDA . number_format($total, 2, '.', ','); ?>
-                                    </p>
+                                    <p class="h3" id="total"><?php echo MONEDA . number_format($total, 2, '.', ','); ?></p>
                                 </td>
                             </tr>
                         </tbody>
                         <?php } ?>
                     </table>
                 </div>
-                <!-- <div class="row justify-content-end" -->
                 <?php if ($lista_carrito != null) { ?>
                 <div class="row">
                     <div class="col-md-5 offset-md-7 d-grid gap-2">
@@ -131,7 +124,7 @@ if ($productos != null) {
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">Desea eliminar el producto de la lista?</div>
+                <div class="modal-body">¿Desea eliminar el producto de la lista?</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Cerrar
@@ -200,47 +193,6 @@ if ($productos != null) {
     }
     </script>
 
-    <!-- <script>
-    function eliminar() {
-        $("tr td #delete").click(function(ev) {
-            ev.preventDefault();
-            var nombre = $(this).parents('tr').find('td:first').text();
-            var id = $(this).attr('data-id');
-            Swal.fire({
-                title: '¿Realmente quieres eliminar el producto de ' + nombre + '?',
-                text: 'El registro no será eliminado permanentemente!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si',
-                cancelButtonText: 'No'
-            }).then((result) => {
-                if (result.value) {
-                    // ajax ...
-                    $.ajax({
-                        type: 'POST',
-                        url: 'clases/carrito.php'
-                        data: {
-                            'id': id
-                        },
-                        success: function() {
-                            Swal.fire({
-                                title: 'Eliminado',
-                                text: 'El registro ha sido eliminado satisfactoriamente',
-                                icon: 'success',
-                            })
-                        }.statusCode: {
-                            400: function() {
-
-                            }
-                        }
-                    })
-                    document.location.href = href;
-                }
-            })
-        })
-
-    }
-    </script> -->
     <?php include 'layout/footer.php'; ?>
+</body>
+</html>
